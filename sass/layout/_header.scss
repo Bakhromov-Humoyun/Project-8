@@ -1,0 +1,111 @@
+@use "../utils/variables" as var;
+@use "../layout/flex" as flx;
+@use "../utils/font" as font;
+
+header {
+  padding: 56px 0;
+  background-color: var.$bg-dark;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  nav {
+    @include flx.flex(center, space-between, 0);
+
+    .nav-menu {
+      @include flx.flex(flex-start, start, 40);
+
+      &__link {
+        @include font.font("Open Sans", 600, 16px, 28px, 0%, var.$bg-white);
+        padding: 8px 40px;
+        border-radius: 24px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:active,
+        &:hover {
+          background-color: var.$bg-white;
+          color: var.$bg-dark;
+        }
+      }
+    }
+  }
+
+  // Hamburger menyu uchun stil
+  #hamburger {
+    display: none; // Boshlang'ich holatda yashirin
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000; // Hamburger menyu boshqa elementlardan ustun bo'lishi uchun
+
+    .line {
+      width: 25px;
+      height: 3px;
+      background-color: var.$bg-white; // Oq rangda bo'lishi uchun
+      margin: 4px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    // Hamburger menyu faol holatda (animatsiya)
+    &.active {
+      .line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .line:nth-child(2) {
+        opacity: 0;
+      }
+      .line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  // Mobil versiya uchun stil
+  @media (max-width: 830px) {
+  .d_header {
+      display: flex;
+    }
+    padding: 20px 0; // Mobil versiyada paddingni kamaytirish
+
+    nav {
+      position: relative; // Navigatsiya menyusi uchun pozitsiya
+    }
+
+    #hamburger {
+      display: flex; // Kichik ekranlarda ko'rinadi
+    }
+
+    .nav-menu {
+      display: none; // Boshlang'ich holatda menyu yashirin
+      flex-direction: column;
+      position: absolute;
+      top: 100%; // Headerning pastki qismida chiqishi uchun
+      left: 0;
+      width: 100%;
+      background-color: var.$bg-dark; // Tema rangiga moslash
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Soyali effekt
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+      z-index: 999; // Navigatsiya menyusi boshqa elementlardan ustun bo'lishi uchun
+
+      &.active {
+        display: flex; // Menyu faol holatda ko'rinadi
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &__link {
+        color: var.$bg-white; // Mobil menyu havolalari oq rangda
+        padding: 10px 20px; // Mobil menyu havolalari uchun padding
+
+        &:hover,
+        &:active {
+          background-color: var.$bg-white;
+          color: var.$bg-dark;
+        }
+      }
+    }
+  }
+}

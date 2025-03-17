@@ -1,0 +1,92 @@
+@use "../utils/variables" as var;
+@use "../layout/flex" as flx;
+@use "../utils/font" as font;
+
+.content_2_next_tittle_head {
+  margin-top: 45px;
+  .head_blog {
+    text-align: center;
+    p {
+      font-family: Open Sans;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0%;
+      color: var.$bg-dark;
+    }
+    h2 {
+      font-family: Manrope;
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 84px;
+      letter-spacing: 0%;
+      text-align: center;
+      color: var.$bg-dark;
+    }
+    .head_blog_tittle {
+      margin-bottom: 50px;
+      display: flex;
+      margin-top: 40px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 100px;
+      .img_tittle {
+        max-width: 100%;
+        height: auto;
+      }
+      .texts_log_blog {
+        .number {
+          display: flex;
+          gap: 10px;
+          h5 {
+            font-family: Open Sans;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 28px;
+            color: var.$bg-dark;
+          }
+          p {
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            color: var.$text-grey;
+          }
+        }
+        h3 {
+          font-family: Manrope;
+          font-weight: 400;
+          font-size: 38px;
+          line-height: 72px;
+          letter-spacing: 0%;
+          color: var.$text-dark;
+        }
+        .footer_card {
+          display: flex;
+          gap: 12px;
+          p {
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            letter-spacing: 0%;
+            color: var.$bg-dark;
+          }
+        }
+      }
+    }
+  }
+}
+.see_all {
+  margin: 0 0 124px;
+  h2 {
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 72px;
+    letter-spacing: 0%;
+    color: var.$text-dark;
+    text-align: start;
+  }
+}
